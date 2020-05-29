@@ -7,7 +7,6 @@ export default function Button({
    bottom, top, margin, marginText, width = '30%', border, load,
    height, bgColor, medium, children,
  }) {
-// Style
   const boxStyle = {
     color,
     height,
