@@ -3,24 +3,10 @@ import React from 'react';
 import {styledText, CommonButton, styledButton} from '../styled/index';
 
 export default function Button({
-                                 disabled,
-                                 text,
-                                 onClick,
-                                 position = 'relative',
-                                 color,
-                                 type,
-                                 bottom,
-                                 top,
-                                 margin,
-                                 marginText,
-                                 width = '30%',
-                                 border,
-                                 load,
-                                 height,
-                                 bgColor,
-                                 medium,
-                                 children,
-                               }) {
+   disabled, text, onClick, position = 'relative', color, type,
+   bottom, top, margin, marginText, width = '30%', border, load,
+   height, bgColor, medium, children,
+ }) {
 // Style
   const boxStyle = {
     color,
@@ -68,10 +54,10 @@ Button.defaultProps = {
 // Type of props
 
 Button.propTypes = {
-  text: types.string.isRequired,
-  disabled: types.bool.isRequired,
-  onClick: types.func.isRequired,
-  border: types.string.isRequired,
+  text: types.string,
+  disabled: types.bool,
+  onClick: types.func,
+  border: types.string,
   color: types.string,
   height: types.string,
   width: types.string,
