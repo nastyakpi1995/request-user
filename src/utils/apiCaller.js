@@ -11,7 +11,7 @@ export default async function apiCaller(config, after = false) {
   // Data preparation
 
   const fullConfig = {
-    baseURL: 'http://77.120.241.80:8911/',
+    baseURL: 'https://cors-anywhere.herokuapp.com/77.120.241.80:8911/',
     method: 'get',
     ...config,
   };
