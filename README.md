@@ -6,4 +6,3 @@ run this command to start
 # npm i
 # npm run start
  https://nastyakpi1995.github.io/request-user/
- file:///Users/admin/Documents/May-30-2020%2016-45-47.gif
