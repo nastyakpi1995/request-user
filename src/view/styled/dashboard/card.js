@@ -36,6 +36,12 @@ export const CardBody = styled.div`
     line-height: 40px;
     margin: 0;
   }
+  h5 {
+   margin: 0;
+  }
+  p {
+     margin: 0;
+  }
 `;
 
 export const TitleButton = styled.span`
