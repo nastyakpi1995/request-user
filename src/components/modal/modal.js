@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../redux/actions';
 import {Button} from '../../view';
 
-import {Confirm, Body, ContainerButton} from '../../view/styled/index';
+import {Confirm, BodyModal, ContainerButton} from '../../view/styled/index';
 
 const Modal = ({
                  isDelete, userDelete, setIsDelete, handleClickDelete,
@@ -14,7 +14,7 @@ const Modal = ({
       opacity: isDelete ? '1' : '0',
     }}
   >
-    <Body>
+    <BodyModal>
       <h1>
         realy want delete
         {' '}
@@ -38,7 +38,7 @@ const Modal = ({
           delete
         </Button>
       </ContainerButton>
-    </Body>
+    </BodyModal>
 
   </Confirm>
 

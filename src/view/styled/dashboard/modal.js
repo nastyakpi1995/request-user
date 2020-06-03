@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-export const Body = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-`;
-
 export const ContainerButton = styled.div`
     display: flex;
     justify-content: space-evenly;
@@ -31,6 +25,9 @@ export const Confirm = styled.div`
 
   h1 {
     color: black;
+    display: flex;
+    justify-content: start;
+    overflow: auto;
   }
 
   @media (max-width: 801px) {
@@ -51,4 +48,8 @@ export const Confirm = styled.div`
       left: calc(50% - 250px);
     }
   }
+`;
+
+export const BodyModal = styled.div`
+
 `;

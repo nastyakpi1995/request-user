@@ -39,15 +39,9 @@ export const Continue = styled.div`
 `;
 
 export const Body = styled.div`
-  width: 50%;
-  display: flex;
-  align-items: center;
-  font-size: 40px;
-  justify-content: space-evenly;
-
-  a {
-    text-decoration: none;
-  }
+    display: flex;
+    justify-content: center;
+    width: 100%;
 `;
 
 export const ButtonPagination = styled.button`
