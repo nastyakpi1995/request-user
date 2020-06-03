@@ -74,6 +74,7 @@ export default (state = defaultState, action) => {
         userPutSuccess: true,
         userLoading: false,
         userData: action.data,
+        pagesQuantity: Math.ceil(action.data.length / 5),
       };
     }
 
@@ -98,6 +99,7 @@ export default (state = defaultState, action) => {
         ...state,
         userLoading: false,
         userData: action.data,
+        pagesQuantity: Math.ceil(action.data.length / 5),
       };
     }
 
@@ -123,6 +125,7 @@ export default (state = defaultState, action) => {
         userPutSuccess: true,
         userLoading: false,
         userData: action.data,
+        pagesQuantity: Math.ceil(action.data.length / 5),
       };
     }
 

@@ -99,6 +99,7 @@ const Pagination = ({
           <Link to={`${pagesQuantity}`}>
             <LinkChildren
               type="button"
+              onClick={() => setCurrentPage(pagesQuantity)}
             >
               {pagesQuantity}
             </LinkChildren>
@@ -109,7 +110,7 @@ const Pagination = ({
         height="100% !important"
         type="button"
         marginText="0"
-        disabled={currentPage === pagesQuantity}
+        disabled={currentPage >= pagesQuantity}
         onClick={() => handleClick()}
       >
         <ButtonPagination>
