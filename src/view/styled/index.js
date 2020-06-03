@@ -6,7 +6,7 @@ import {
 } from './dashboard/pagination';
 import {styledText, CommonButton, styledButton} from './view/button';
 import {
-  Container, UserBlock, GlobalStyle,
+  Container, UserBlock, GlobalStyle, LoaderContainer
 } from './dashboard/user';
 import {Body, Confirm, ContainerButton} from './dashboard/modal';
 import {InputFieldClass} from './view/index';
@@ -35,6 +35,7 @@ export {
   Text,
   Title,
   Error,
+  LoaderContainer,
   styledText,
   styledButton,
 };

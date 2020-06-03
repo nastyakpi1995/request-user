@@ -6,6 +6,11 @@ export const GlobalStyle = createGlobalStyle`
   }
  `;
 
+export const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const UserBlock = styled.div`
   background: #958796;
   max-width: 778px;

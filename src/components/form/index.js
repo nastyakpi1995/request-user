@@ -16,8 +16,8 @@ import {
 import {Wrapper, FormButton} from '../../view/styled/index';
 
 function CreatePeople({
-                        requestUserCreate, requestUserPut, currentUser, serverErrors, userSuccess, userData,
-                      }) {
+    requestUserCreate, requestUserPut, currentUser, serverErrors, userLoading, userData,
+   }) {
   const history = useHistory();
 
   const handleChangeCancel = () => {
@@ -32,7 +32,7 @@ function CreatePeople({
         validationSchema={createPeopleFormSchema()}
         onSubmit={(values) => {
           setTimeout(() => {
-            if (userSuccess) {
+            if (!userLoading) {
               handleChangeCancel();
             }
 
@@ -170,6 +170,7 @@ const mapStateToProps = (state) => ({
   currentUser: state.getUser.currentUser,
   userSuccess: state.getUser.userPutSuccess,
   userData: state.getUser.userData,
+  userLoading: state.getUser.userLoading,
 });
 
 
