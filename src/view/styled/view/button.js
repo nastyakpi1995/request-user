@@ -41,12 +41,12 @@ export const styledButton = ({
   bottom: ${bottom};
   margin: ${margin};
   transition: 0.5s all;
+  outline: none;
   cursor: pointer;
 
    &[disabled] {
     background-color: #423f3f;
     transition: 0.3s all;
-    border: none;
   }
 
   &:hover {

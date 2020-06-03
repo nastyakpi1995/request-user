@@ -12,12 +12,16 @@ export const PaginationWrapper = styled.div`
 
   a {
     text-decoration: none;
+      &:hover {
+        height: 40px;
+        background: red;
+   }
    }
 `;
 
 export const LinkChildren = styled.button`
-  background: inherit;
-  color: ${props => (props.isActive ? '#fff' : '#a4abb1')};
+  background: ${props => (props.isActive ? '#fff' : '#d6cccf')};
+  color: ${props => (props.isActive ? '#000' : '#a4abb1')};
   transition: 0.3s all;
   display: flex;
   justify-content: center;
@@ -51,8 +55,9 @@ export const ButtonPagination = styled.button`
   background: inherit;
   border: none;
   margin: 0 auto;
+  height: 100%;
+  outline: none;
   color: white;
-  height: 40px;
   max-width: 400px;
   width: 60px;
   justify-content: space-around;

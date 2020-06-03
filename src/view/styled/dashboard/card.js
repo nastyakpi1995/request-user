@@ -9,7 +9,7 @@ export const CardWrapper = styled.div`
   align-items: center;
   margin-bottom: 20px;
   display: flex;
-  transition: 0.5s all;
+  transition: all 1s ease-out;
   position: relative;
   cursor: pointer;
 

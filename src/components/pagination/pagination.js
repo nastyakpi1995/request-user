@@ -37,6 +37,7 @@ const Pagination = ({
     <PaginationWrapper>
       <Button
         type="button"
+        height="100% !important"
         marginText="0"
         onClick={() => handleClick('mine')}
         disabled={currentPage === 1}
@@ -105,6 +106,7 @@ const Pagination = ({
         )}
       </Body>
       <Button
+        height="100% !important"
         type="button"
         marginText="0"
         disabled={currentPage === pagesQuantity}
