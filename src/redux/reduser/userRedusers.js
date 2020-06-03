@@ -126,8 +126,8 @@ export default (state = defaultState, action) => {
         ...state,
         userPutSuccess: true,
         userLoading: false,
-        userData: action.data,
-        pagesQuantity: Math.ceil(action.data.length / 5),
+        userData: 1,
+        pagesQuantity: 5,
       };
     }
 
