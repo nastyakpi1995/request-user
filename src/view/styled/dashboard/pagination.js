@@ -28,6 +28,7 @@ export const LinkChildren = styled.button`
   cursor: pointer;
   height: 40px;
   width: 40px;
+  border-radius: 5px;
 `;
 
 export const Continue = styled.div`
