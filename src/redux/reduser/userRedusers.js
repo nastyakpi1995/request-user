@@ -100,6 +100,8 @@ export default (state = defaultState, action) => {
         userLoading: false,
         userData: action.data,
         pagesQuantity: Math.ceil(action.data.length / 5),
+        startRange: action.data.length - 5,
+        endPage: action.data.length,
       };
     }
 
