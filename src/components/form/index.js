@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Formik, Form} from 'formik';
 import * as userActions from '../../redux/actions';
-import {initialValues, createPeopleFormSchema} from './CreatePeopleFormSchema';
+import { initialValues } from './CreatePeopleFormSchema';
 
 import {
   Button,
@@ -16,11 +16,12 @@ import {
 import {Wrapper, FormButton} from '../../view/styled/index';
 
 function CreatePeople({
-    requestUserCreate, requestUserPut, currentUser, serverErrors, userLoading, userData,
+    requestUserCreate, requestUserPut, currentUser, serverErrors, userData, userSuccess, castErrors
    }) {
   const history = useHistory();
 
   const handleChangeCancel = () => {
+    castErrors()
     history.push('/');
   };
 
@@ -29,25 +30,20 @@ function CreatePeople({
       <Formik
         enableReinitialize
         initialValues={initialValues(currentUser, userData)}
-        validationSchema={createPeopleFormSchema()}
         onSubmit={(values) => {
-          setTimeout(() => {
-            if (!userLoading) {
-              handleChangeCancel();
-            }
-
-            if (!currentUser) {
-              requestUserCreate(values);
-            } else {
-              requestUserPut(+currentUser, values);
-            }
-          }, 0);
+          debugger
+          if (userSuccess) {
+            handleChangeCancel();
+            requestUserCreate(values);
+            debugger
+          } else {
+            debugger
+            requestUserPut(+currentUser, values);
+          }
         }}
       >
         {({
             values,
-            errors,
-            touched,
             handleChange,
             handleBlur,
             handleSubmit,
@@ -73,16 +69,8 @@ function CreatePeople({
                   onChange={handleChange}
                   onBlur={handleBlur}
                   name="name"
-                  error={
-                    touched.name && errors.name
-                      ? errors.name
-                      : null
-                  }
                 />
-                {touched.name && errors.name ? (
-                  <ErrorMessage text={errors.name}/>
-                ) : null}
-                {serverErrors.name !== null
+                {serverErrors.name
                   ? serverErrors.name.map((el) => {
                     return <ErrorMessage key={el} text={el}/>;
                   })
@@ -98,16 +86,8 @@ function CreatePeople({
                   onChange={handleChange}
                   onBlur={handleBlur}
                   name="surname"
-                  error={
-                    touched.surname && errors.surname
-                      ? errors.surname
-                      : null
-                  }
                 />
-                {touched.surname && errors.surname ? (
-                  <ErrorMessage text={errors.surname}/>
-                ) : null}
-                {serverErrors.surname !== null
+                {serverErrors.surname
                   ? serverErrors.surname.map((el) => {
                     return <ErrorMessage key={el} text={el}/>;
                   })
@@ -123,16 +103,8 @@ function CreatePeople({
                   onChange={handleChange}
                   onBlur={handleBlur}
                   name="desc"
-                  error={
-                    touched.desc && errors.desc
-                      ? errors.desc
-                      : null
-                  }
                 />
-                {touched.desc && errors.desc ? (
-                  <ErrorMessage text={errors.desc}/>
-                ) : null}
-                {serverErrors.desc !== null
+                {serverErrors.desc
                   ? serverErrors.desc.map((el) => {
                     return <ErrorMessage key={el} text={el}/>;
                   })
@@ -151,6 +123,7 @@ function CreatePeople({
                 <Button
                   type="submit"
                   text="Save Changes"
+                  onClick={handleSubmit}
                 />
               </FormButton>
             </Form>

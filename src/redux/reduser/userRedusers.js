@@ -12,9 +12,9 @@ const defaultState = {
   userLoading: false,
   currentUser: '',
   userErrors: {
-    name: null,
-    surname: null,
-    desc: null,
+    name: [],
+    surname: [],
+    desc: [],
   },
 };
 
@@ -49,6 +49,11 @@ export default (state = defaultState, action) => {
         userData: action.data,
         totalLength: action.data.length,
         pagesQuantity: Math.ceil(action.data.length / 5),
+        userErrors: {
+          name: [],
+          surname: [],
+          desc: [],
+        },
       };
     }
 
@@ -75,6 +80,11 @@ export default (state = defaultState, action) => {
         userLoading: false,
         userData: action.data,
         pagesQuantity: Math.ceil(action.data.length / 5),
+        userErrors: {
+          name: [],
+          surname: [],
+          desc: [],
+        },
       };
     }
 
@@ -102,6 +112,11 @@ export default (state = defaultState, action) => {
         pagesQuantity: Math.ceil(action.data.length / 5),
         startRange: 1,
         endPage: 5,
+        userErrors: {
+          name: [],
+          surname: [],
+          desc: [],
+        },
       };
     }
 
@@ -136,6 +151,7 @@ export default (state = defaultState, action) => {
         ...state,
         userPutSuccess: false,
         userLoading: false,
+        userErrors: action.data,
       };
     }
 
@@ -143,6 +159,18 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         currentUser: action.id,
+      };
+    }
+
+
+    case FETCH_TYPES.CAST_ALL_ERRORS: {
+      return {
+        ...state,
+        userErrors: {
+          name: [],
+          surname: [],
+          desc: [],
+        },
       };
     }
 

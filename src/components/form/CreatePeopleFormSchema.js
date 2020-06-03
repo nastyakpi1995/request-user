@@ -1,20 +1,3 @@
-import * as Yup from 'yup';
-
-export function createPeopleFormSchema() {
-  return Yup.object().shape({
-    name: Yup.string()
-      .min(2, 'Too Short!')
-      .max(30, 'Too Long!')
-      .required('Please enter name'),
-    surname: Yup.string()
-      .min(2, 'Too Short!')
-      .max(30, 'Too Long!')
-      .required('Please enter surname'),
-    desc: Yup.string().required('Required'),
-  });
-}
-
-
 export const initialValues = (currentUser, userData) => {
   let defaultValues = ({
     name: '',

@@ -8,8 +8,7 @@ import {Button} from '../../view';
 import Modal from '../modal/modal';
 import { Container } from '../../view/styled/index';
 
-const UserList = ({
-                    userData, requestGetUser, startRange, endPage, requestUserDelete, setCurrentUser,
+const UserList = ({userData, requestGetUser, startRange, endPage, requestUserDelete, setCurrentUser,
                   }) => {
   const [isDelete, setIsDelete] = useState(false);
   const history = useHistory();

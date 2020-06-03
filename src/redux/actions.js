@@ -70,3 +70,9 @@ export const setCurrentPage = (currentPage) => ({
   type: FETCH_TYPES.SET_CURRENT_PAGE,
   currentPage,
 });
+
+export const castErrors = () => ({
+  type: FETCH_TYPES.CAST_ALL_ERRORS,
+});
+
+

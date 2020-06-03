@@ -13,6 +13,7 @@ const FETCH_TYPES = {
   PUT_FAIL: '@@user/PUT_FAIL',
   SET_CURRENT_USER: '@@user/SET_CURRENT_USER',
   SET_CURRENT_PAGE: '@@user/SET_CURRENT_PAGE',
+  CAST_ALL_ERRORS: '@@user/CAST_ALL_ERRORS'
 };
 
 export default FETCH_TYPES;
