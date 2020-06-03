@@ -30,24 +30,11 @@ const Card = ({
         <p>{desc}</p>
       </CardBody>
       <Button
-        height="40px"
-        width="40px"
-        onClick={() => onHandlerUserDelete(id)}
-        color="#fff"
-        position="absolute"
-        bgColor="#e84141"
-        border="none"
-        top="5px"
-      >
-        x
-      </Button>
-      <Button
         onClick={() => handlerHistory(id)}
         width="50px"
         height="50px"
         bgColor="azure"
-        position="absolute"
-        bottom="10px"
+        margin="0 20px 0 0"
       >
         <TitleButton>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,6 +42,16 @@ const Card = ({
           </svg>
         </TitleButton>
 
+      </Button>
+      <Button
+        onClick={() => onHandlerUserDelete(id)}
+        height="40px"
+        width="40px"
+        color="#fff"
+        bgColor="#e84141"
+        border="none"
+      >
+        x
       </Button>
     </CardWrapper>
   );

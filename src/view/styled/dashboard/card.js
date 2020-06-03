@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const CardWrapper = styled.div`
   box-sizing: border-box;
-  padding: 20px;
+  border-radius: 20px;
+  padding: 5px;
+  background: #492f46;
   text-align: left;
   box-shadow: 1px 2px 6px 0px #4b3961;
-  height: 200px;
-  align-items: center;
+  align-items: baseline;
+  justify-content: space-between;
   margin-bottom: 20px;
   display: flex;
   transition: all 1s ease-out;
@@ -14,8 +16,8 @@ export const CardWrapper = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: #1c3c58;
     color: #b3ceef;
+    box-shadow: white 2px 1px 42px;
   }
 `;
 

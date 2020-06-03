@@ -48,9 +48,14 @@ export const styledButton = ({
     background-color: #423f3f;
     transition: 0.3s all;
   }
+   &[disabled]:hover {
+    background-color: black;
+    transition: 0.3s all;
+  }
 
   &:hover {
     color: gray;
+    background: #cdc1c4;
   }
 `;
 

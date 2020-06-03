@@ -6,7 +6,7 @@ import Pagination from '../pagination/pagination';
 import * as actions from '../../redux/actions';
 import {Button} from '../../view';
 import Modal from '../modal/modal';
-import {Container} from '../../view/styled/index';
+import { Container } from '../../view/styled/index';
 
 const UserList = ({
                     userData, requestGetUser, startRange, endPage, requestUserDelete, setCurrentUser,
