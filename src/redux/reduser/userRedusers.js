@@ -100,8 +100,8 @@ export default (state = defaultState, action) => {
         userLoading: false,
         userData: action.data,
         pagesQuantity: Math.ceil(action.data.length / 5),
-        startRange: action.data.length - 5,
-        endPage: action.data.length,
+        startRange: 1,
+        endPage: 5,
       };
     }
 
@@ -126,8 +126,8 @@ export default (state = defaultState, action) => {
         ...state,
         userPutSuccess: true,
         userLoading: false,
-        userData: 1,
-        pagesQuantity: 5,
+        userData: action.data,
+        pagesQuantity: Math.ceil(action.data.length / 5),
       };
     }
 
