@@ -13,29 +13,27 @@ interface OwnProps {
 
 type PropTypes = OwnProps;
 
-const User: FunctionComponent<PropTypes> = ({ userLoading }) => {
-  return (
-    <UserBlock>
-      {userLoading ?
-        <LoaderContainer>
-          <Loader
-            type="Bars"
-            color="#00BFFF"
-            height={500}
-            width={100}
-          />
-        </LoaderContainer>
-         :
-        <>
-          <UserList/>
-          <Route path="/createPeople">
-            <CreatePeople/>
-          </Route>
+const User: FunctionComponent<PropTypes> = ({ userLoading }) => (
+  <UserBlock>
+    {userLoading ?
+      <LoaderContainer>
+        <Loader
+          type="Circles"
+          color="#00BFFF"
+          height={500}
+          width={100}
+        />
+      </LoaderContainer>
+      :
+      <>
+        <UserList/>
+        <Route path="/createPeople">
+          <CreatePeople/>
+        </Route>
       </>
-        }
-    </UserBlock>
-  );
-};
+    }
+  </UserBlock>
+);
 
 interface UserInterface {
   getUser: {

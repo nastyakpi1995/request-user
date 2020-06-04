@@ -6,13 +6,16 @@ import { Button } from '../../view/Index';
 import {
   CardBody, CardWrapper, TitleButton,
 } from '../../view/styled';
-import { CardTypes, interfaceCard } from '../models';
+import { CardProps, interfaceCard } from '../models';
+
+type CardTypes = CardProps;
 
 const Card: FunctionComponent<CardTypes> = ({
-                id, name, desc, surname, setIsDelete, setCurrentUser,
-              }) => {
+  id, name, desc, surname, setIsDelete, setCurrentUser, castErrors
+}) => {
   const history = useHistory();
   const handlerHistory = (idUser: string) => {
+    castErrors()
     setCurrentUser(idUser);
     history.push('/createPeople');
   };

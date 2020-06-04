@@ -14,6 +14,7 @@ export interface UserListProps {
   requestUserDelete: Function,
   setCurrentUser: Function,
   requestGetUser: Function,
+  castErrors: Function,
 }
 
 
@@ -77,16 +78,15 @@ export interface interfaceCard {
   }
 }
 
-interface CardProps {
+export interface CardProps {
   id: string,
   name: string,
   desc: string,
   surname: string,
   setIsDelete: Function,
   setCurrentUser: Function,
+  castErrors: Function
 }
-
-export type CardTypes = CardProps;
 
 // Modals
 

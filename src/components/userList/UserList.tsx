@@ -12,7 +12,7 @@ import { UserListProps, UserListInterface } from '../models';
 type UserListTypes = UserListProps;
 
 const UserList: FunctionComponent<UserListTypes>  = ({
-   userData, requestGetUser, startRange, endPage, requestUserDelete, setCurrentUser,
+   userData, requestGetUser, startRange, endPage, requestUserDelete, setCurrentUser, castErrors
 }) => {
   const [isDelete, setIsDelete] = useState(false);
   const history = useHistory();
@@ -24,6 +24,7 @@ const UserList: FunctionComponent<UserListTypes>  = ({
   }
 
   const handleClick = () => {
+    castErrors()
     setCurrentUser('');
     history.push('/createPeople');
   };

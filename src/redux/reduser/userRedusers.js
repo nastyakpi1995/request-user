@@ -21,6 +21,8 @@ const defaultState = {
 // -------- Reducer --------
 
 export default (state = defaultState, action) => {
+  debugger
+
   switch (action.type) {
     case FETCH_TYPES.GET_REQUEST: {
       return {
@@ -166,6 +168,7 @@ export default (state = defaultState, action) => {
     case FETCH_TYPES.CAST_ALL_ERRORS: {
       return {
         ...state,
+        userPutSuccess: false,
         userErrors: {
           name: [],
           surname: [],
