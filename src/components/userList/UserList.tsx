@@ -6,7 +6,7 @@ import Pagination from '../pagination/Pagination';
 import * as actions from '../../redux/actions';
 import Modal from '../modal/Modal';
 import { Button } from '../../view/Index';
-import { Container } from '../../view/styled';
+import { Container, AddPerson } from '../../view/styled';
 import { UserListProps, UserListInterface } from '../models';
 
 type UserListTypes = UserListProps;
@@ -51,6 +51,18 @@ const UserList: FunctionComponent<UserListTypes>  = ({
         />
       ) : (
         <div>
+          <AddPerson>
+            <Button
+              type="button"
+              onClick={handleClick}
+              width="150px"
+              bgColor="#678bb7"
+              color="#ede4f5"
+            >
+              Add New Person
+            </Button>
+          </AddPerson>
+
           <div>
             {userData && userData
               .slice(startRange, endPage)
@@ -65,14 +77,6 @@ const UserList: FunctionComponent<UserListTypes>  = ({
                 />
               ))}
           </div>
-          <Button
-            type="button"
-            onClick={handleClick}
-            position="initial"
-            margin="0 0 10px 20px"
-          >
-            Add New Person
-          </Button>
           <Pagination/>
         </div>
       )}

@@ -40,6 +40,7 @@ const Pagination: FunctionComponent<PaginationTypes> = ({
         type="button"
         height="100% !important"
         marginText="0"
+        bgColor="#678bb7"
         onClick={() => handleClick('mine')}
         disabled={currentPage === 1}
       >
@@ -113,6 +114,7 @@ const Pagination: FunctionComponent<PaginationTypes> = ({
         marginText="0"
         disabled={currentPage >= pagesQuantity}
         onClick={handleClick}
+        bgColor="#678bb7"
       >
         <ButtonPagination>
           <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">

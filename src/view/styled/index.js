@@ -6,7 +6,7 @@ import {
 } from './dashboard/pagination';
 import { styledText, CommonButton, styledButton } from './view/button';
 import {
-  Container, UserBlock, GlobalStyle, LoaderContainer,
+  Container, UserBlock, GlobalStyle, LoaderContainer, AddPerson
 } from './dashboard/user';
 import { Confirm, ContainerButton, BodyModal } from './dashboard/modal';
 import { InputFieldClass, ReactIconClass } from './view/index';
@@ -25,6 +25,7 @@ export {
   Continue,
   LinkChildren,
   Container,
+  AddPerson,
   InputFieldClass,
   ReactIconClass,
   Wrapper,

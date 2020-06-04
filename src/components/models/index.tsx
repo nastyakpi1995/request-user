@@ -56,20 +56,6 @@ export interface CreatePeopleProps {
   castErrors: Function
 }
 
-export interface interfaceCreatePeople {
-  getUser: {
-    userErrors: {
-      name: [],
-      surname: [],
-      desc: [],
-    },
-    currentUser: any,
-    userData: UserData[],
-    userPutSuccess: boolean,
-    userLoading: boolean,
-  }
-}
-
 //  CardTypes
 
 export interface interfaceCard {

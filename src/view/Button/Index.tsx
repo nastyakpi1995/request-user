@@ -6,7 +6,6 @@ interface ButtonProps {
   text?: string,
   disabled?: boolean,
   onClick?: Function,
-  position?: string,
   border?: string,
   color?: string,
   height?: string,
@@ -15,27 +14,22 @@ interface ButtonProps {
   marginText?: string,
   bgColor?: string,
   margin?: string,
-  bottom?: string,
-  top?: string,
 }
 
 type ButtonType = ButtonProps;
 
 const Button: FunctionComponent<ButtonType> = ({
-    disabled, text, onClick, position = 'relative', color, type,
-    bottom, top, margin, marginText, width = '30%', border,
+    disabled, text, onClick, color, type,
+     margin, marginText, width = '30%', border,
     height, bgColor, children,
  }) => {
   const boxStyle = {
     color,
     height,
     width,
-    position,
     bgColor,
     border,
     margin,
-    bottom,
-    top
   };
   const ButtonStyle = styledButton(boxStyle);
   const Text = styledText(marginText);

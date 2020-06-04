@@ -21,8 +21,6 @@ const defaultState = {
 // -------- Reducer --------
 
 export default (state = defaultState, action) => {
-  debugger
-
   switch (action.type) {
     case FETCH_TYPES.GET_REQUEST: {
       return {

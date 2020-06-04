@@ -10,17 +10,23 @@ export const PaginationWrapper = styled.div`
   height: 50px;
   padding-bottom: 40px;
 
+  &:hover {
+     height: 40px;
+
+  }
+
   a {
     text-decoration: none;
       &:hover {
         height: 40px;
-        background: red;
-   }
+        background: #3272c0;
+     }
    }
 `;
 
 export const LinkChildren = styled.button`
-  background: ${props => (props.isActive ? '#fff' : '#d6cccf')};
+  align-items: center;
+  background: ${props => (props.isActive ? '#fff' : '#a3badc')};
   color: ${props => (props.isActive ? '#000' : '#a4abb1')};
   transition: 0.3s all;
   display: flex;
@@ -43,6 +49,7 @@ export const Body = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
+    align-items: center;
 `;
 
 export const ButtonPagination = styled.button`

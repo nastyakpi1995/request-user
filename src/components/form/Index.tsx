@@ -8,7 +8,7 @@ import {
   FieldLabel,
   ErrorMessage,
 } from '../../view/Index';
-import { interfaceCreatePeople, CreatePeopleProps } from '../models';
+import { CreatePeopleProps } from '../models';
 
 import { Wrapper, FormButton, InputFieldClass } from '../../view/styled';
 
@@ -16,8 +16,7 @@ type CreatePeopleTypes = CreatePeopleProps;
 
 const CreatePeople: FunctionComponent<CreatePeopleTypes> = ({
     requestUserCreate, requestUserPut, currentUser, serverErrors,
-                                                              userData,
-                                                              userSuccess, castErrors
+    userData, userSuccess, castErrors
    }) => {
   const userCurrent = currentUser ? userData.filter(item => item.id === currentUser) : '';
 
@@ -35,7 +34,6 @@ const CreatePeople: FunctionComponent<CreatePeopleTypes> = ({
   };
   useEffect(() => {
     if (userSuccess) {
-      debugger
       handleChangeCancel();
     }
   }, [userSuccess])
@@ -43,10 +41,8 @@ const CreatePeople: FunctionComponent<CreatePeopleTypes> = ({
   const onHandlerSubmit= (event: any) => {
     event.preventDefault();
       if (currentUser) {
-        debugger
         requestUserPut(+currentUser, initialValues);
       } else {
-        debugger
         requestUserCreate(initialValues);
       }
   }
@@ -61,7 +57,6 @@ const CreatePeople: FunctionComponent<CreatePeopleTypes> = ({
       surname: current.surname !== undefined ? current.surname : initialValues.surname,
       desc: current.desc !== undefined ? current.desc : initialValues.desc,
     });
-    debugger
   };
 
   return (
@@ -143,6 +138,25 @@ const CreatePeople: FunctionComponent<CreatePeopleTypes> = ({
 CreatePeople.propTypes = {
   requestUserCreate: PropTypes.func.isRequired,
 };
+
+interface interfaceCreatePeople {
+  getUser: {
+    userErrors: {
+      name: [],
+      surname: [],
+      desc: [],
+    },
+    currentUser: any,
+    userData: {
+      id?: any,
+      name: string,
+      surname: string,
+      desc: string,
+    },
+    userPutSuccess?: boolean | undefined,
+    userLoading: boolean,
+  }
+}
 
 const mapStateToProps = (state: interfaceCreatePeople) => ({
   serverErrors: state.getUser.userErrors,

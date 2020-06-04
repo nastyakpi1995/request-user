@@ -4,7 +4,7 @@ export const CardWrapper = styled.div`
   box-sizing: border-box;
   border-radius: 20px;
   padding: 5px;
-  background: #492f46;
+  background: #55595d;
   text-align: left;
   box-shadow: 1px 2px 6px 0px #4b3961;
   align-items: baseline;

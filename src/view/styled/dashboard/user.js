@@ -1,4 +1,4 @@
-import styled, {createGlobalStyle} from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -12,7 +12,7 @@ export const LoaderContainer = styled.div`
 `;
 
 export const UserBlock = styled.div`
-  background: #958796;
+  background: #d6cfd6;
   max-width: 778px;
   border-radius: 20px;
   margin: 20px auto;
@@ -32,4 +32,10 @@ export const Container = styled.div`
   width: 100%;
   border-radius: 10%;
   color: white;
+`;
+
+export const AddPerson = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
 `;

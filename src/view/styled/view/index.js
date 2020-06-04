@@ -10,7 +10,7 @@ export const InputFieldClass = styled.input`
    font-style: normal;
    font-weight: normal;
    font-size: 16px;
-   padding: 0 16px;
+   padding: 0px 0px 0px 7px;
    outline: none;
    width: 100%;
    transition: border-color 0.2s, background-color 0.2s,
