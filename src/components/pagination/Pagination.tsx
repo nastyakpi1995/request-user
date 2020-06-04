@@ -1,29 +1,30 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
 import {
   NavLink as Link,
   useHistory,
 } from 'react-router-dom';
-import {connect} from 'react-redux';
-
+import { connect } from 'react-redux';
 import {
   PaginationWrapper,
   ButtonPagination,
   Continue,
   LinkChildren,
   Body,
-} from '../../view/styled/index';
+} from '../../view/styled';
 import * as actions from '../../redux/actions';
-import {Button} from '../../view';
+import { Button } from '../../view/Index';
+import { PaginationProps, paginationInterface } from '../models';
 
-const Pagination = ({
-                      currentPage,
-                      setCurrentPage, pagesQuantity,
-                    }) => {
+type PaginationTypes = PaginationProps;
+
+const Pagination: FunctionComponent<PaginationTypes> = ({
+     currentPage, setCurrentPage, pagesQuantity,
+}) => {
   const number = currentPage - 1;
   const history = useHistory();
 
-  const handleClick = (data) => {
+  const handleClick = (data: string) => {
     if (data === 'mine') {
       setCurrentPage(currentPage - 1);
       history.push(`${currentPage - 1}`);
@@ -111,7 +112,7 @@ const Pagination = ({
         type="button"
         marginText="0"
         disabled={currentPage >= pagesQuantity}
-        onClick={() => handleClick()}
+        onClick={handleClick}
       >
         <ButtonPagination>
           <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,7 +130,7 @@ Pagination.propTypes = {
   setCurrentPage: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: paginationInterface) => ({
   currentPage: state.getUser.currentPage,
   pagesQuantity: state.getUser.pagesQuantity,
 });

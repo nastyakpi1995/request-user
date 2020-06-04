@@ -1,22 +1,23 @@
-import React from 'react';
-import {useHistory} from 'react-router-dom';
-import {connect} from 'react-redux';
+import React, { FunctionComponent } from 'react';
+import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import * as actions from '../../redux/actions';
-import {Button} from '../../view';
+import { Button } from '../../view/Index';
 import {
   CardBody, CardWrapper, TitleButton,
 } from '../../view/styled';
+import { CardTypes, interfaceCard } from '../models';
 
-const Card = ({
+const Card: FunctionComponent<CardTypes> = ({
                 id, name, desc, surname, setIsDelete, setCurrentUser,
               }) => {
   const history = useHistory();
-  const handlerHistory = (idUser) => {
+  const handlerHistory = (idUser: string) => {
     setCurrentUser(idUser);
     history.push('/createPeople');
   };
 
-  const onHandlerUserDelete = (userId) => {
+  const onHandlerUserDelete = (userId: string) => {
     setIsDelete(userId);
   };
 
@@ -30,11 +31,12 @@ const Card = ({
         <p>{desc}</p>
       </CardBody>
       <Button
-        onClick={() => handlerHistory(id)}
+        type="button"
         width="50px"
         height="50px"
         bgColor="azure"
         margin="0 20px 0 0"
+        onClick={() => handlerHistory(id)}
       >
         <TitleButton>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,6 +46,7 @@ const Card = ({
 
       </Button>
       <Button
+        type="button"
         onClick={() => onHandlerUserDelete(id)}
         height="40px"
         width="40px"
@@ -57,11 +60,9 @@ const Card = ({
   );
 };
 
-const mapStateToProps = (state) => {
-  return ({
+const mapStateToProps = (state: interfaceCard) => ({
     userData: state.getUser.userData,
-  });
-};
+});
 
 export default (
   connect(mapStateToProps, actions)(Card)

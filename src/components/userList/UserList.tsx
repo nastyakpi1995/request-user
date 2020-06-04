@@ -1,15 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import {connect} from 'react-redux';
-import {useHistory} from 'react-router-dom';
-import Card from '../card/card';
-import Pagination from '../pagination/pagination';
+import React, { useEffect, useState, FunctionComponent } from 'react';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import Card from '../card/Card';
+import Pagination from '../pagination/Pagination';
 import * as actions from '../../redux/actions';
-import {Button} from '../../view';
-import Modal from '../modal/modal';
-import { Container } from '../../view/styled/index';
+import Modal from '../modal/Modal';
+import { Button } from '../../view/Index';
+import { Container } from '../../view/styled';
+import { UserListProps, UserListInterface } from '../models';
 
-const UserList = ({userData, requestGetUser, startRange, endPage, requestUserDelete, setCurrentUser,
-                  }) => {
+type UserListTypes = UserListProps;
+
+const UserList: FunctionComponent<UserListTypes>  = ({
+   userData, requestGetUser, startRange, endPage, requestUserDelete, setCurrentUser,
+}) => {
   const [isDelete, setIsDelete] = useState(false);
   const history = useHistory();
   let userDelete;
@@ -40,7 +44,7 @@ const UserList = ({userData, requestGetUser, startRange, endPage, requestUserDel
       {isDelete ? (
         <Modal
           isDelete={isDelete}
-          userDelete={userDelete[0].name}
+          userDelete={userDelete}
           setIsDelete={setIsDelete}
           handleClickDelete={handleClickDelete}
         />
@@ -61,6 +65,7 @@ const UserList = ({userData, requestGetUser, startRange, endPage, requestUserDel
               ))}
           </div>
           <Button
+            type="button"
             onClick={handleClick}
             position="initial"
             margin="0 0 10px 20px"
@@ -74,7 +79,7 @@ const UserList = ({userData, requestGetUser, startRange, endPage, requestUserDel
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: UserListInterface) => ({
   userData: state.getUser.userData,
   startRange: state.getUser.startRange,
   endPage: state.getUser.endPage,

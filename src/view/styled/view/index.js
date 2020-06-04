@@ -18,4 +18,6 @@ export const InputFieldClass = styled.input`
    appearance: none;
 `;
 
-
+export const ReactIconClass = styled.div`
+    color: red;
+`;

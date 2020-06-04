@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
-import {useHistory} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {Formik, Form} from 'formik';
+import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Formik, Form } from 'formik';
 import * as userActions from '../../redux/actions';
 import { initialValues } from './CreatePeopleFormSchema';
-
 import {
   Button,
   Input,
   FieldLabel,
   ErrorMessage,
-} from '../../view/index';
+} from '../../view/Index';
+import { interfaceCreatePeople, CreatePeopleProps } from '../models';
 
-import {Wrapper, FormButton} from '../../view/styled/index';
+import { Wrapper, FormButton } from '../../view/styled';
 
-function CreatePeople({
+type CreatePeopleTypes = CreatePeopleProps;
+
+const CreatePeople: FunctionComponent<CreatePeopleTypes> = ({
     requestUserCreate, requestUserPut, currentUser, serverErrors, userData, userSuccess, castErrors
-   }) {
+   }) => {
   const history = useHistory();
 
   const handleChangeCancel = () => {
@@ -31,13 +33,10 @@ function CreatePeople({
         enableReinitialize
         initialValues={initialValues(currentUser, userData)}
         onSubmit={(values) => {
-          debugger
           if (userSuccess) {
             handleChangeCancel();
             requestUserCreate(values);
-            debugger
           } else {
-            debugger
             requestUserPut(+currentUser, values);
           }
         }}
@@ -63,7 +62,6 @@ function CreatePeople({
                 text="Name"
               >
                 <Input
-                  type="text"
                   placeholder={values.name}
                   value={values.name}
                   onChange={handleChange}
@@ -71,7 +69,7 @@ function CreatePeople({
                   name="name"
                 />
                 {serverErrors.name
-                  ? serverErrors.name.map((el) => {
+                  ? serverErrors.name.map((el: string) => {
                     return <ErrorMessage key={el} text={el}/>;
                   })
                   : null}
@@ -80,7 +78,6 @@ function CreatePeople({
                 text="surname"
               >
                 <Input
-                  type="text"
                   placeholder={values.surname}
                   value={values.surname}
                   onChange={handleChange}
@@ -97,7 +94,6 @@ function CreatePeople({
                 text="desc"
               >
                 <Input
-                  type="text"
                   placeholder={values.desc}
                   value={values.desc}
                   onChange={handleChange}
@@ -111,8 +107,6 @@ function CreatePeople({
                   : null}
               </FieldLabel>
 
-            </Form>
-            <Form>
               <FormButton>
                 <Button
                   type="button"
@@ -138,7 +132,7 @@ CreatePeople.propTypes = {
   requestUserCreate: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: interfaceCreatePeople) => ({
   serverErrors: state.getUser.userErrors,
   currentUser: state.getUser.currentUser,
   userSuccess: state.getUser.userPutSuccess,
@@ -146,5 +140,5 @@ const mapStateToProps = (state) => ({
   userLoading: state.getUser.userLoading,
 });
 
-
+// @ts-ignore
 export default connect(mapStateToProps, userActions)(CreatePeople);

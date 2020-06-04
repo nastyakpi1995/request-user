@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../redux/actions';
-import {Button} from '../../view';
+import { Button } from '../../view/Index';
 
-import {Confirm, BodyModal, ContainerButton} from '../../view/styled/index';
+import { Confirm, BodyModal, ContainerButton } from '../../view/styled';
+import { ModalProps } from '../models';
 
-const Modal = ({
-                 isDelete, userDelete, setIsDelete, handleClickDelete,
-               }) => (
+const Modal: FunctionComponent<any> = ({
+   isDelete, userDelete, setIsDelete, handleClickDelete,
+ }) => (
   <Confirm
     style={{
       transform: isDelete ? 'translateY(0)' : 'translateY(-100vh)',
@@ -18,11 +19,12 @@ const Modal = ({
       <h1>
         realy want delete
         {' '}
-        {userDelete}
+        {userDelete[0] && userDelete[0].name}
         {' ?'}
       </h1>
       <ContainerButton>
         <Button
+          type="button"
           onClick={() => setIsDelete(false)}
           width="50%"
           height="50px"
@@ -31,6 +33,7 @@ const Modal = ({
           Cansel
         </Button>
         <Button
+          type="button"
           onClick={handleClickDelete}
           width="50%"
           height="50px"
@@ -39,12 +42,10 @@ const Modal = ({
         </Button>
       </ContainerButton>
     </BodyModal>
-
   </Confirm>
-
 );
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: ModalProps) => ({
   userData: state.getUser.userData,
   startRange: state.getUser.startRange,
   endPage: state.getUser.endPage,
