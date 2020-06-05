@@ -39,3 +39,7 @@ export const AddPerson = styled.div`
   justify-content: space-between;
   padding: 15px 30px;
 `;
+
+export const ListUser = styled.div`
+  height: ${props => props.theme === 3 ? '400px' : '650px'};
+`;

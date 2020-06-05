@@ -11,6 +11,7 @@ export interface UserListProps {
   userData: UserData[]
   startRange: number,
   endPage: number,
+  perPage: number,
   requestUserDelete: Function,
   setCurrentUser: Function,
   requestGetUser: Function,
@@ -22,7 +23,8 @@ export interface UserListInterface {
   getUser: {
     userData: UserData[],
     startRange: number,
-    endPage: number
+    endPage: number,
+    perPage: number
   }
 }
 
@@ -85,5 +87,6 @@ export interface ModalProps {
     },
     startRange: number,
     endPage: number,
+    perPage: number
   }
 }

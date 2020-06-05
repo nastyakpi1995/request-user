@@ -6,18 +6,19 @@ import Pagination from '../pagination/Pagination';
 import * as actions from '../../redux/actions';
 import Modal from '../modal/Modal';
 import { Button } from '../../view/Index';
-import { Container, AddPerson } from '../../view/styled';
+import { Container, AddPerson, ListUser } from '../../view/styled';
 import { UserListProps, UserListInterface } from '../models';
 import Switch from '../../view/Switch';
 
 type UserListTypes = UserListProps;
 
 const UserList: FunctionComponent<UserListTypes>  = ({
-   userData, requestGetUser, startRange, endPage, requestUserDelete, setCurrentUser, castErrors
+   userData, requestGetUser, startRange, endPage, requestUserDelete, setCurrentUser, castErrors, perPage
 }) => {
   const [isDelete, setIsDelete] = useState(false);
   const history = useHistory();
   let userDelete;
+console.log(perPage)
 
   if (isDelete) {
     history.push('/');
@@ -66,7 +67,7 @@ const UserList: FunctionComponent<UserListTypes>  = ({
             </Button>
           </AddPerson>
 
-          <div>
+          <ListUser theme={perPage}>
             {userData && userData
               .slice(startRange, endPage)
               .map(item => (
@@ -79,7 +80,7 @@ const UserList: FunctionComponent<UserListTypes>  = ({
                   setIsDelete={setIsDelete}
                 />
               ))}
-          </div>
+          </ListUser>
           <Pagination/>
         </div>
       )}
@@ -91,6 +92,7 @@ const mapStateToProps = (state: UserListInterface) => ({
   userData: state.getUser.userData,
   startRange: state.getUser.startRange,
   endPage: state.getUser.endPage,
+  perPage: state.getUser.perPage,
 });
 
 export default (

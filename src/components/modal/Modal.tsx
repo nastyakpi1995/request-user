@@ -7,9 +7,10 @@ import { Confirm, BodyModal, ContainerButton } from '../../view/styled';
 import { ModalProps } from '../models';
 
 const Modal: FunctionComponent<any> = ({
-   isDelete, userDelete, setIsDelete, handleClickDelete,
+   isDelete, userDelete, setIsDelete, handleClickDelete, perPage
  }) => (
   <Confirm
+    theme={perPage}
     style={{
       transform: isDelete ? 'translateY(0)' : 'translateY(-100vh)',
       opacity: isDelete ? '1' : '0',
@@ -49,6 +50,7 @@ const mapStateToProps = (state: ModalProps) => ({
   userData: state.getUser.userData,
   startRange: state.getUser.startRange,
   endPage: state.getUser.endPage,
+  perPage: state.getUser.perPage
 });
 
 export default (

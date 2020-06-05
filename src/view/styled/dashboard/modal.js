@@ -16,12 +16,13 @@ export const Confirm = styled.div`
   z-index: 500;
   padding: 0 40px;
   background-color: #ebe9e7;
-  width: 564px;
   height: 616px;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
+  max-width: 590px;
+  height: ${props => props.theme === 3 ? '400px' : '650px'};
 
   h1 {
     color: black;

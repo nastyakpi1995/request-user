@@ -6,7 +6,7 @@ import {
 } from './dashboard/pagination';
 import { styledText, CommonButton, styledButton } from './view/button';
 import {
-  Container, UserBlock, GlobalStyle, LoaderContainer, AddPerson
+  Container, UserBlock, GlobalStyle, LoaderContainer, AddPerson, ListUser
 } from './dashboard/user';
 import { Confirm, ContainerButton, BodyModal } from './dashboard/modal';
 import { InputFieldClass, ReactIconClass } from './view/index';
@@ -28,6 +28,7 @@ export {
   LinkChildren,
   Container,
   AddPerson,
+  ListUser,
   InputFieldClass,
   ReactIconClass,
   Wrapper,
