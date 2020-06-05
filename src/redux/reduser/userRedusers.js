@@ -32,7 +32,7 @@ export default (state = defaultState, action) => {
 
     case FETCH_TYPES.SET_CURRENT_PAGE: {
       const endPage = action.currentPage * state.perPage;
-debugger
+
       return {
         ...state,
         endPage,
@@ -176,12 +176,15 @@ debugger
     }
 
     case FETCH_TYPES.SET_COUNT_PAGES: {
+      const perPage = action.perPage ? 3 : 5;
+
       return {
         ...state,
-        perPage: action.perPage ? 3 : 5,
-        pagesQuantity: Math.ceil(state.userData / state.perPage),
+        perPage,
+        pagesQuantity: Math.ceil(state.userData.length / perPage),
         startRange: 0,
-        endPage: action.perPage ? 3 : 5,
+        endPage: perPage,
+        currentPage: 1,
       }
     }
 
