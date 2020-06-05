@@ -10,11 +10,6 @@ export const PaginationWrapper = styled.div`
   height: 50px;
   padding-bottom: 40px;
 
-  &:hover {
-     height: 40px;
-
-  }
-
   a {
     text-decoration: none;
       &:hover {
