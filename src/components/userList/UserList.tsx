@@ -8,6 +8,7 @@ import Modal from '../modal/Modal';
 import { Button } from '../../view/Index';
 import { Container, AddPerson } from '../../view/styled';
 import { UserListProps, UserListInterface } from '../models';
+import Switch from '../../view/Switch';
 
 type UserListTypes = UserListProps;
 
@@ -40,6 +41,7 @@ const UserList: FunctionComponent<UserListTypes>  = ({
     }
   }, []);
 
+
   return (
     <Container>
       {isDelete ? (
@@ -52,6 +54,7 @@ const UserList: FunctionComponent<UserListTypes>  = ({
       ) : (
         <div>
           <AddPerson>
+            <Switch/>
             <Button
               type="button"
               onClick={handleClick}

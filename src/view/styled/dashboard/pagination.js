@@ -10,11 +10,6 @@ export const PaginationWrapper = styled.div`
   height: 50px;
   padding-bottom: 40px;
 
-  &:hover {
-     height: 40px;
-
-  }
-
   a {
     text-decoration: none;
       &:hover {
@@ -50,6 +45,14 @@ export const Body = styled.div`
     justify-content: center;
     width: 100%;
     align-items: center;
+`;
+
+export const ButtonContainer = styled.div`
+   justify-content: inherit;
+    display: flex;
+    text-align: start;
+    align-items: flex-start;
+    height: 75px;
 `;
 
 export const ButtonPagination = styled.button`

@@ -36,6 +36,6 @@ export const Container = styled.div`
 
 export const AddPerson = styled.div`
   display: flex;
-  justify-content: flex-end;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 15px 30px;
 `;

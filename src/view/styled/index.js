@@ -2,7 +2,7 @@ import {
   TitleButton, CardWrapper, CardBody,
 } from './dashboard/card';
 import {
-  PaginationWrapper, ButtonPagination, Continue, LinkChildren, Body,
+  PaginationWrapper, ButtonPagination, Continue, LinkChildren, Body, ButtonContainer
 } from './dashboard/pagination';
 import { styledText, CommonButton, styledButton } from './view/button';
 import {
@@ -13,6 +13,7 @@ import { InputFieldClass, ReactIconClass } from './view/index';
 import { Text, Title, Error } from './view/field';
 import { Wrapper, FormButton } from './dashboard/form';
 import { ErrorMessageBox, TextError, IconError } from './view/errorMessage';
+import { BoxSwitch } from './view/switch';
 
 export {
   CardWrapper,
@@ -20,6 +21,7 @@ export {
   BodyModal,
   TitleButton,
   PaginationWrapper,
+  ButtonContainer,
   Body,
   ButtonPagination,
   Continue,
@@ -42,6 +44,7 @@ export {
   TextError,
   ErrorMessageBox,
   IconError,
+  BoxSwitch,
   styledText,
   styledButton,
 };

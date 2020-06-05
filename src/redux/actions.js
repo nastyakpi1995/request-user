@@ -75,4 +75,8 @@ export const castErrors = () => ({
   type: FETCH_TYPES.CAST_ALL_ERRORS,
 });
 
+export const setPages = (perPage) => ({
+  type: FETCH_TYPES.SET_COUNT_PAGES,
+  perPage
+});
 

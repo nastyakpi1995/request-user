@@ -31,14 +31,14 @@ export default (state = defaultState, action) => {
     }
 
     case FETCH_TYPES.SET_CURRENT_PAGE: {
-      const endPage = action.currentPage * 5;
-
+      const endPage = action.currentPage * state.perPage;
+debugger
       return {
         ...state,
         endPage,
         currentPage: action.currentPage,
-        pagesQuantity: Math.ceil(state.userData.length / 5),
-        startRange: endPage - 5,
+        pagesQuantity: Math.ceil(state.userData.length / state.perPage),
+        startRange: endPage - state.perPage,
       };
     }
 
@@ -48,7 +48,7 @@ export default (state = defaultState, action) => {
         userLoading: false,
         userData: action.data,
         totalLength: action.data.length,
-        pagesQuantity: Math.ceil(action.data.length / 5),
+        pagesQuantity: Math.ceil(action.data.length / state.perPage),
         userErrors: {
           name: [],
           surname: [],
@@ -79,7 +79,7 @@ export default (state = defaultState, action) => {
         userPutSuccess: true,
         userLoading: false,
         userData: action.data,
-        pagesQuantity: Math.ceil(action.data.length / 5),
+        pagesQuantity: Math.ceil(action.data.length / state.perPage),
         userErrors: {
           name: [],
           surname: [],
@@ -109,9 +109,9 @@ export default (state = defaultState, action) => {
         ...state,
         userLoading: false,
         userData: action.data,
-        pagesQuantity: Math.ceil(action.data.length / 5),
+        pagesQuantity: Math.ceil(action.data.length / state.perPage),
         startRange: 0,
-        endPage: 5,
+        endPage: state.perPage,
         userErrors: {
           name: [],
           surname: [],
@@ -142,7 +142,7 @@ export default (state = defaultState, action) => {
         userPutSuccess: true,
         userLoading: false,
         userData: action.data,
-        pagesQuantity: Math.ceil(action.data.length / 5),
+        pagesQuantity: Math.ceil(action.data.length / state.perPage),
       };
     }
 
@@ -173,6 +173,16 @@ export default (state = defaultState, action) => {
           desc: [],
         },
       };
+    }
+
+    case FETCH_TYPES.SET_COUNT_PAGES: {
+      return {
+        ...state,
+        perPage: action.perPage ? 3 : 5,
+        pagesQuantity: Math.ceil(state.userData / state.perPage),
+        startRange: 0,
+        endPage: action.perPage ? 3 : 5,
+      }
     }
 
     default: {
