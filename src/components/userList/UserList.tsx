@@ -12,8 +12,8 @@ import Switch from '../../view/Switch';
 type UserListTypes = UserListProps;
 
 const UserList: FunctionComponent<UserListTypes>  = ({
-   userData, requestGetUser, startRange, endPage, castErrors, perPage, setIsShowForm
-}) => {
+                                                       userData, requestGetUser, startRange, endPage, castErrors, perPage, setIsShowForm
+                                                     }) => {
   const history = useHistory();
 
 
@@ -32,35 +32,35 @@ const UserList: FunctionComponent<UserListTypes>  = ({
 
   return (
     <Container>
-        <div>
-          <AddPerson>
-            <Switch/>
-            <ButtonComponent
-              type="button"
-              onClick={handleClick}
-              width="150px"
-              bgColor="#678bb7"
-              color="#ede4f5"
-            >
-              Add New Person
-            </ButtonComponent>
-          </AddPerson>
+      <div>
+        <AddPerson>
+          <Switch/>
+          <ButtonComponent
+            type="button"
+            onClick={handleClick}
+            width="150px"
+            bgColor="#678bb7"
+            color="#ede4f5"
+          >
+            Add New Person
+          </ButtonComponent>
+        </AddPerson>
 
-          <ListUser theme={perPage}>
-            {userData && userData
-              .slice(startRange, endPage)
-              .map(item => (
-                <ManageCard
-                  key={item.id}
-                  id={item.id}
-                  name={item.name}
-                  surname={item.surname}
-                  desc={item.desc}
-                />
-              ))}
-          </ListUser>
-          <Pagination/>
-        </div>
+        <ListUser theme={perPage}>
+          {userData && userData
+            .slice(startRange, endPage)
+            .map(item => (
+              <ManageCard
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                surname={item.surname}
+                desc={item.desc}
+              />
+            ))}
+        </ListUser>
+        <Pagination/>
+      </div>
     </Container>
   );
 };
