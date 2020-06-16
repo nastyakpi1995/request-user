@@ -1,6 +1,7 @@
 import {
   TitleButton, CardWrapper, CardBody,
 } from './dashboard/card';
+import { DropdownList, Dropdown, Button, ButtonMain } from './dashboard/select';
 import {
   PaginationWrapper, ButtonPagination, Continue, LinkChildren, Body, ButtonContainer
 } from './dashboard/pagination';
@@ -8,7 +9,7 @@ import { styledText, CommonButton, styledButton } from './view/button';
 import {
   Container, UserBlock, GlobalStyle, LoaderContainer, AddPerson, ListUser
 } from './dashboard/user';
-import { Confirm, ContainerButton, BodyModal } from './dashboard/modal';
+import { Confirm, ContainerButton, BodyModal, Wrapp, Backdrop } from './dashboard/modal';
 import { InputFieldClass, ReactIconClass } from './view/index';
 import { Text, Title, Error } from './view/field';
 import { Wrapper, FormButton } from './dashboard/form';
@@ -19,6 +20,7 @@ export {
   CardWrapper,
   CardBody,
   BodyModal,
+  Backdrop,
   TitleButton,
   PaginationWrapper,
   ButtonContainer,
@@ -46,6 +48,11 @@ export {
   ErrorMessageBox,
   IconError,
   BoxSwitch,
+  DropdownList,
+  Dropdown,
+  Button,
+  ButtonMain,
+  Wrapp,
   styledText,
   styledButton,
 };

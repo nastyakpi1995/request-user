@@ -1,4 +1,4 @@
-import FETCH_TYPES from './types';
+import FETCH_TYPES, { TYPES } from './types';
 
 export const requestGetUser = (data) => ({
   type: FETCH_TYPES.GET_REQUEST,
@@ -61,11 +61,6 @@ export const errorUserPut = (id) => ({
   id,
 });
 
-export const setCurrentUser = (id) => ({
-  type: FETCH_TYPES.SET_CURRENT_USER,
-  id,
-});
-
 export const setCurrentPage = (currentPage) => ({
   type: FETCH_TYPES.SET_CURRENT_PAGE,
   currentPage,
@@ -80,3 +75,22 @@ export const setPages = (perPage) => ({
   perPage
 });
 
+export const setAction = (action) => ({
+  type: TYPES.SET_CARD_ACTION,
+  action
+});
+
+export const setIdUser = (id) => ({
+  type: TYPES.SET_CARD_ID,
+  id
+})
+
+export const setIsShowForm = (isShowForm) => ({
+    type: TYPES.SET_SHOW_FORM,
+    isShowForm
+});
+
+export const setInitialValues = (initialValues) => ({
+  type: TYPES.SET_INITIAL_VALUES,
+  initialValues
+})

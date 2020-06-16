@@ -1,47 +1,43 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as userActions from '../../redux/actions';
 import {
-  Button,
+  ButtonComponent,
   FieldLabel,
   ErrorMessage,
-} from '../../view/Index';
-import { CreatePeopleProps } from '../models';
+} from '../../view';
+import { CreatePeopleProps } from '../../models';
 
-import { Wrapper, FormButton, InputFieldClass } from '../../view/styled';
+import { Wrapper, FormButton, InputFieldClass, Backdrop } from '../../view/styled';
 
 type CreatePeopleTypes = CreatePeopleProps;
 
 const CreatePeople: FunctionComponent<CreatePeopleTypes> = ({
     requestUserCreate, requestUserPut, currentUser, serverErrors,
-    userData, userSuccess, castErrors
+     userSuccess, castErrors, isShowForm, setIsShowForm, setAction, setInitialValues, initialValues
    }) => {
-  const userCurrent = currentUser ? userData.filter(item => item.id === currentUser) : '';
-
-  const [initialValues, setInitialValues ] = useState({
-    name: userCurrent ? userCurrent[0].name : '',
-    surname: userCurrent ? userCurrent[0].surname : '',
-    desc: userCurrent ? userCurrent[0].desc : '',
-  });
 
   const history = useHistory();
 
-  const handleChangeCancel = () => {
+  const handleCancel = () => {
+    setAction('GET_USER');
+    setIsShowForm(false)
     castErrors()
     history.push('/');
   };
   useEffect(() => {
     if (userSuccess) {
-      handleChangeCancel();
+      handleCancel();
     }
   }, [userSuccess])
 
   const onHandlerSubmit= (event: any) => {
+
     event.preventDefault();
       if (currentUser) {
-        requestUserPut(+currentUser, initialValues);
+        requestUserPut(currentUser, initialValues);
       } else {
         requestUserCreate(initialValues);
       }
@@ -60,8 +56,10 @@ const CreatePeople: FunctionComponent<CreatePeopleTypes> = ({
   };
 
   return (
+    <>
+      {isShowForm && <Backdrop onClick={handleCancel}/>}
     <Wrapper>
-    <form onSubmit={onHandlerSubmit}>
+      <form onSubmit={onHandlerSubmit}>
       {currentUser ? (
         <h1>
           Create
@@ -118,13 +116,13 @@ const CreatePeople: FunctionComponent<CreatePeopleTypes> = ({
           : null}
       </FieldLabel>
       <FormButton>
-        <Button
+        <ButtonComponent
           type="button"
           text="Cancel"
           margin="0 10px 0 0"
-          onClick={handleChangeCancel}
+          onClick={handleCancel}
         />
-        <Button
+        <ButtonComponent
           type="submit"
           text="Save Changes"
           disabled={initialValues.name === ''}
@@ -132,6 +130,7 @@ const CreatePeople: FunctionComponent<CreatePeopleTypes> = ({
       </FormButton>
     </form>
     </Wrapper>
+   </>
   );
 }
 
@@ -140,13 +139,20 @@ CreatePeople.propTypes = {
 };
 
 interface interfaceCreatePeople {
+  cardReducer: {
+    isShowForm: boolean,
+  }
   getUser: {
+    initialValues: {
+      name: string,
+      surname: string,
+      desc: string,
+    },
     userErrors: {
       name: [],
       surname: [],
       desc: [],
     },
-    currentUser: any,
     userData: {
       id?: any,
       name: string,
@@ -160,10 +166,11 @@ interface interfaceCreatePeople {
 
 const mapStateToProps = (state: interfaceCreatePeople) => ({
   serverErrors: state.getUser.userErrors,
-  currentUser: state.getUser.currentUser,
   userSuccess: state.getUser.userPutSuccess,
   userData: state.getUser.userData,
   userLoading: state.getUser.userLoading,
+  isShowForm: state.cardReducer.isShowForm,
+  initialValues: state.getUser.initialValues
 });
 
 // @ts-ignore
