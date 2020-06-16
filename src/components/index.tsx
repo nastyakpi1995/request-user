@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import UserList from './userList/UserList';
-import CreatePeople from './form/Index';
+import CreatePeople from './form';
 import * as actions from "../redux/actions";
 import { UserBlock, LoaderContainer } from '../view/styled';
 

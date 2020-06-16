@@ -1,4 +1,4 @@
-import FETCH_TYPES from '../types';
+import FETCH_TYPES, {TYPES} from '../types';
 
 const defaultState = {
   totalLength: 0,
@@ -8,9 +8,13 @@ const defaultState = {
   currentPage: 1,
   startRange: 0,
   userData: null,
+  initialValues: {
+    name: '',
+    surname: '',
+    desc: '',
+  },
   userPutSuccess: false,
   userLoading: false,
-  currentUser: '',
   userErrors: {
     name: [],
     surname: [],
@@ -155,18 +159,15 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case FETCH_TYPES.SET_CURRENT_USER: {
-      return {
-        ...state,
-        currentUser: action.id,
-      };
-    }
-
-
     case FETCH_TYPES.CAST_ALL_ERRORS: {
       return {
         ...state,
         userPutSuccess: false,
+        initialValues: {
+          name: '',
+          surname: '',
+          desc: '',
+        },
         userErrors: {
           name: [],
           surname: [],
@@ -186,6 +187,13 @@ export default (state = defaultState, action) => {
         endPage: perPage,
         currentPage: 1,
       }
+    }
+
+    case TYPES.SET_INITIAL_VALUES: {
+      return {
+        ...state,
+        initialValues: action.initialValues,
+      };
     }
 
     default: {

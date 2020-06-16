@@ -8,14 +8,15 @@ interface UserData {
 // UserListTypes
 
 export interface UserListProps {
+  setAction: Function,
   userData: UserData[]
   startRange: number,
   endPage: number,
   perPage: number,
   requestUserDelete: Function,
-  setCurrentUser: Function,
   requestGetUser: Function,
   castErrors: Function,
+  setIsShowForm: Function
 }
 
 
@@ -36,7 +37,7 @@ export interface PaginationProps {
   setCurrentPage: Function,
 }
 
-export interface paginationInterface {
+export interface PaginationInterface {
   getUser: {
     currentPage: number,
     pagesQuantity: number
@@ -46,13 +47,22 @@ export interface paginationInterface {
 // CreatePeopleTypes
 export interface CreatePeopleProps {
   requestUserCreate: Function,
+  initialValues: {
+    name: string,
+    surname: string,
+    desc: string,
+  },
+  setAction: Function,
+  setIsShowForm: Function,
   requestUserPut: Function,
-  currentUser: string,
+  setInitialValues: Function,
+  currentUser?: number,
   serverErrors: {
     name: [],
     surname: [],
     desc: []
   },
+  isShowForm: boolean,
   userData: UserData[],
   userSuccess: string,
   castErrors: Function
@@ -60,7 +70,7 @@ export interface CreatePeopleProps {
 
 //  CardTypes
 
-export interface interfaceCard {
+export interface InterfaceCard {
   getUser: {
     userData: UserData[],
   }
@@ -71,9 +81,6 @@ export interface CardProps {
   name: string,
   desc: string,
   surname: string,
-  setIsDelete: Function,
-  setCurrentUser: Function,
-  castErrors: Function
 }
 
 // Modals

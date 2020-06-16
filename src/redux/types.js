@@ -17,4 +17,11 @@ const FETCH_TYPES = {
   SET_COUNT_PAGES: '@@user/SET_COUNT_PAGES',
 };
 
+export const TYPES = {
+  SET_CARD_ACTION: '@@card/SET_CARD_ACTION',
+  SET_CARD_ID: '@@card/SET_CARD_ID',
+  SET_SHOW_FORM: '@@card/SET_SHOW_FORM',
+  SET_INITIAL_VALUES: '@@card/SET_INITIAL_VALUES'
+}
+
 export default FETCH_TYPES;
